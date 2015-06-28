@@ -1,7 +1,7 @@
 object SplashScreen: TSplashScreen
-  Left = 1366
+  Left = 1430
   Height = 155
-  Top = 738
+  Top = 711
   Width = 398
   BorderStyle = bsNone
   Caption = 'SplashScreen'

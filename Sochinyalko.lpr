@@ -1,4 +1,4 @@
-program project1;
+program Sochinyalko;
 
 {$mode objfpc}{$H+}
 
@@ -7,12 +7,13 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, printer4lazarus, Unit1, Unit2, Unit3
+  Forms, printer4lazarus, Unit1, Unit2, Unit3, Unit4
   { you can add units after this };
 
 {$R *.res}
 
 begin
+  Application.Title:='EightBit: Сочинялко';
   RequireDerivedFormResource := True;
   Application.Initialize;
   SplashScreen := TSplashScreen.Create(nil) ;
@@ -22,6 +23,7 @@ begin
    SplashScreen.Hide;
  SplashScreen.Free;
   Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TForm3, Form3);
   Application.Run;
 end.
 

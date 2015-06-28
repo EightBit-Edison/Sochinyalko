@@ -1,7 +1,7 @@
 object Form2: TForm2
-  Left = 1364
+  Left = 1400
   Height = 168
-  Top = 487
+  Top = 469
   Width = 338
   BorderIcons = [biSystemMenu]
   Caption = 'О программе'
@@ -971,7 +971,7 @@ object Form2: TForm2
     Height = 15
     Top = 32
     Width = 86
-    Caption = 'Версия: 1.0 Beta'
+    Caption = 'Версия: 1.1 Beta'
     ParentColor = False
   end
   object Label3: TLabel
