@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, PrintersDlgs, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, Menus, ExtCtrls, Unit3, Unit4, Zipper, httpsend, Printers, INIFiles;
+  StdCtrls, Menus, ExtCtrls, Unit3, Unit4, Unit5, Zipper, httpsend, Printers, INIFiles;
 
 type
 
@@ -104,6 +104,18 @@ var
    UnZipper.Free;
  end;
 
+
+
+procedure TForm1.MenuItem4Click(Sender: TObject);
+begin
+  Form2.Show;
+end;
+
+procedure TForm1.MenuItem5Click(Sender: TObject);
+begin
+  close;
+end;
+
 procedure RenameAll(const ADirectory: String);
 var
    Rec : TSearchRec;
@@ -125,36 +137,6 @@ begin
      end;
 end;
 
-
-function CountFiles(const ADirectory: String): Integer;
-var
-   Rec : TSearchRec;
-   sts : Integer ;
-begin
-   Result := 0;
-   sts := FindFirst(ADirectory + '\*.*', faAnyFile, Rec);
-   if sts = 0 then
-     begin
-       repeat
-         if ((Rec.Attr and faDirectory) <> faDirectory) then
-            Inc(Result)
-            else if (Rec.Name <> '.') and (Rec.Name <> '..') then
-            Result := Result + CountFiles(ADirectory + '\'+ Rec.Name);
-       until FindNext(Rec) <> 0;
-       SysUtils.FindClose(Rec);
-     end;
-end;
-
-procedure TForm1.MenuItem4Click(Sender: TObject);
-begin
-  Form2.Show;
-end;
-
-procedure TForm1.MenuItem5Click(Sender: TObject);
-begin
-  close;
-end;
-
 procedure TForm1.Button1Click(Sender: TObject);
 var Png: TPortableNetworkGraphic;
      C:integer;
@@ -173,27 +155,13 @@ begin
  begin
   DownloadHTTP('http://myswsu.ru/1.zip', 'C:\tmp\1.zip');
   UnzipArch();
-
- Png := TPortableNetworkGraphic.Create;
- RenameAll('C:\tmp\1');
- C:=CountFiles('C:\tmp\1');
- if printDialog1.Execute then
-  begin
- For i:= 1 to C do
-     begin
-    Png.LoadFromFile('C:\tmp\1\'+ inttostr(i) +'.png');
-    Printer.BeginDoc;
-    Printer.Canvas.Rectangle(0,0,Printer.PageWidth-2, Printer.PageHeight-2);
-    Printer.Canvas.StretchDraw(Rect(0,0,Printer.PageWidth-2, Printer.PageHeight-2), Png);
-    Printer.EndDoc;
-    end;
-  end;
- end
+   RenameAll('C:\tmp\1');
+  Form4.Show;
+  end
  else
  begin
    showmessage('Ошибка доступа к сети');
  end;
- DeleteDirectory('C:\tmp',false);
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);

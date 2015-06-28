@@ -1,0 +1,103 @@
+object Form4: TForm4
+  Left = 220
+  Height = 818
+  Top = 127
+  Width = 799
+  BorderStyle = bsSingle
+  Caption = 'Печать'
+  ClientHeight = 818
+  ClientWidth = 799
+  OnShow = FormShow
+  LCLVersion = '1.4.0.4'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 800
+    Top = 8
+    Width = 568
+    Caption = 'Просмотр'
+    ClientHeight = 780
+    ClientWidth = 564
+    TabOrder = 0
+    object Image1: TImage
+      Left = 0
+      Height = 780
+      Top = 0
+      Width = 564
+      Align = alClient
+      Proportional = True
+    end
+  end
+  object Button1: TButton
+    Left = 592
+    Height = 31
+    Top = 32
+    Width = 35
+    Caption = '<'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 752
+    Height = 31
+    Top = 32
+    Width = 35
+    Caption = '>'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 640
+    Height = 16
+    Top = 40
+    Width = 101
+    Caption = 'Изображение 1'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button3: TButton
+    Left = 704
+    Height = 31
+    Top = 768
+    Width = 75
+    Caption = 'Печать'
+    OnClick = Button3Click
+    TabOrder = 3
+  end
+  object Button4: TButton
+    Left = 600
+    Height = 31
+    Top = 768
+    Width = 75
+    Caption = 'Отмена'
+    OnClick = Button4Click
+    TabOrder = 4
+  end
+  object CheckGroup1: TCheckGroup
+    Left = 584
+    Height = 656
+    Top = 96
+    Width = 204
+    AutoFill = True
+    Caption = 'Выбор страниц'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    TabOrder = 5
+  end
+  object PrintDialog1: TPrintDialog
+    OnClose = PrintDialog1Close
+    left = 16
+    top = 768
+  end
+end
