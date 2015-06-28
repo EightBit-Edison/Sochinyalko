@@ -68,8 +68,11 @@ end;
 
 procedure TForm4.Button3Click(Sender: TObject);
 var Png: TPortableNetworkGraphic;
-     i:integer;
+     i,j,k,e:integer;
 begin
+   j:=0;
+   i:=0;
+   e:=0;
  Png := TPortableNetworkGraphic.Create;
  C:=CountFiles('C:\tmp\1');
  if printDialog1.Execute then
@@ -84,8 +87,16 @@ begin
     Printer.EndDoc;
     end;
   end;
- DeleteDirectory('C:\tmp',false);
- Form4.Close;
+ For e:= 0 to C-1 do
+     if CheckGroup1.Checked[e] = false then
+     begin
+     j:=j+1;
+      if j = C then  begin
+      showMessage('Не выбрано ни одно изображение');
+      end;
+     end;
+   CheckGroup1.Items.Clear;
+       Form4.Close;
 end;
 
 procedure TForm4.Button2Click(Sender: TObject);

@@ -144,6 +144,7 @@ var Png: TPortableNetworkGraphic;
      f:text;
      s,s2:string;
 begin
+DeleteDirectory('C:\tmp',false);
   INiF.WriteString('Last','family',Edit1.Text);
   INiF.WriteString('Last','name',Edit2.Text);
   INiF.WriteString('Last','otchestvo',Edit3.Text);

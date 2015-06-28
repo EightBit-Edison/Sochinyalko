@@ -1,7 +1,7 @@
 object Form4: TForm4
-  Left = 220
+  Left = 168
   Height = 818
-  Top = 127
+  Top = 138
   Width = 799
   BorderStyle = bsSingle
   Caption = 'Печать'
@@ -79,7 +79,7 @@ object Form4: TForm4
     TabOrder = 4
   end
   object CheckGroup1: TCheckGroup
-    Left = 584
+    Left = 583
     Height = 656
     Top = 96
     Width = 204
